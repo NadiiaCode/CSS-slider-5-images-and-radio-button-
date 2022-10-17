@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <input type="radio" name="dots" id="d1">
+        <input type="radio" name="dots" id="d2">
+        <input type="radio" name="dots" id="d3" checked>
+        <input type="radio" name="dots" id="d4">
+        <input type="radio" name="dots" id="d5">
+        <div class="languages">
+            <!--Python-->
+            <label class="card" for="d1">
+                <img  src="./1.jpg" alt="image">
+                <p>Python is a general-purpose, powerful and versatile language. Whatever you want to do, python can do it (webdev, machine learning, data science, ...) </p>
+                <h2>Duration 10 weeks.</h2>
+            </label>
+            <!--Go-->
+            <label class="card" for="d2">
+                <img src="./2.png" alt="image">
+                <p>"Go (Golang) is an open source language designed to build fast, reliable, and efficient software at scale (apps, webdev, in operations and infrastructure teams, ...) </p>
+                <h2>Duration 10 hours.</h2>
+            </label>
+            <!--JavaScript-->
+            <label class="card" for="d3">
+                <img src="./3.jpg" alt="image">
+                <p>JavaScript is among the most flexible and powerful languages. You'll learn fundamentals using the latest syntax for use of JavaScript in any environment.</p>
+                <h2>Duration 20 hours. </h2>
+            </label>
+            <!--TypeScript-->
+            <label class="card" for="d4">
+                <img src="./4.jpg" alt="image">
+                <p>" TypeScript build on JavaScript foundation. You'll learn how to apply the JavaScript syntax you already know to TypeScript’s type system. </p>
+                <h2>Duration 30 hours.</h2>
+            </label>
+            <!--CSS-->
+            <label class="card" for="d5">
+                <img src="./5.webp" alt="image">
+                <p>CSS makes your web pages look and feel like works of art. You’ll learn how to use, set up the file structure, edit text and colors, and create attractive layouts.</p>
+                <h2>Duration 10 hours.</h2>
+            </label>
+        </div>
+        <div class="radio-input">
+            <label for="d1"></label>
+            <label for="d2"></label>
+            <label for="d3"></label>
+            <label for="d4"></label>
+            <label for="d5"></label>
+        </div>
+    </div>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color: #ffffff;
+            background: #031c22;
+        }
+        
+        .container {
+            width: 100%;
+        }
+        
+        input {
+            display: none;
+        }
+        
+        .languages {
+            min-height: 450px;
+            perspective: 1000px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        .card {
+            width: 380px;
+            padding: 30px;
+            top: 0;
+            position: absolute;
+            box-sizing: border-box;
+            user-select: none;
+            cursor: pointer;
+            text-align: center;
+            border-radius: 10px;
+            transition: transform 0.5s;
+            background-color: #2d534a;
+            box-shadow: 0 0 10px #1b312c;
+        }
+        
+        img {
+            width: 250px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        
+        p {
+            text-align: justify;
+            font-size: 20px;
+        }
+        
+        h2 {
+            font-size: 20px;
+        }
+        
+        .radio-input {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .radio-input label {
+            height: 7px;
+            width: 7px;
+            margin: 7px;
+            border-radius: 50%;
+            transition-duration: 0.2s;
+            background-color: #2d534a;
+        }
+        
+        #d1:checked~.radio-input label[for="d1"],
+        #d2:checked~.radio-input label[for="d2"],
+        #d3:checked~.radio-input label[for="d3"],
+        #d4:checked~.radio-input label[for="d4"],
+        #d5:checked~.radio-input label[for="d5"] {
+            transform: scale(2.2);
+            background-color: #ffffff;
+        }
+        
+        #d1:checked~.languages label[for="d3"],
+        #d2:checked~.languages label[for="d4"],
+        #d3:checked~.languages label[for="d5"],
+        #d4:checked~.languages label[for="d1"],
+        #d5:checked~.languages label[for="d2"] {
+            transform: translate3d(600px, 0, -180px) rotateY(-25deg);
+            z-index: 2;
+        }
+        
+        #d1:checked~.languages label[for="d2"],
+        #d2:checked~.languages label[for="d3"],
+        #d3:checked~.languages label[for="d4"],
+        #d4:checked~.languages label[for="d5"],
+        #d5:checked~.languages label[for="d1"] {
+            transform: translate3d(300px, 0, -90px) rotateY(-15deg);
+            z-index: 3;
+        }
+        
+        #d2:checked~.languages label[for="d1"],
+        #d3:checked~.languages label[for="d2"],
+        #d4:checked~.languages label[for="d3"],
+        #d5:checked~.languages label[for="d4"],
+        #d1:checked~.languages label[for="d5"] {
+            transform: translate3d(-300px, 0, -90px) rotateY(15deg);
+            z-index: 3;
+        }
+        
+        #d3:checked~.languages label[for="d1"],
+        #d4:checked~.languages label[for="d2"],
+        #d5:checked~.languages label[for="d3"],
+        #d2:checked~.languages label[for="d5"],
+        #d1:checked~.languages label[for="d4"] {
+            transform: translate3d(-600px, 0, -180px) rotateY(25deg);
+        }
+        
+        #d1:checked~.languages label[for="d1"],
+        #d2:checked~.languages label[for="d2"],
+        #d3:checked~.languages label[for="d3"],
+        #d4:checked~.languages label[for="d4"],
+        #d5:checked~.languages label[for="d4"],
+        #d5:checked~.languages label[for="d5"] {
+            z-index: 4;
+        }
+    </style>
+</body>
+
+</html>
